@@ -1,6 +1,6 @@
 var settings = {
     mqtt: {
-        host: process.env.MQTT_HOST || 'http://localhost',
+        host: process.env.MQTT_HOST || 'https://maqiatto.com',
         user: process.env.MQTT_USER || 'iot_group1_2021@hrw.de',
         password: process.env.MQTT_PASS || '123456',
         clientId: process.env.MQTT_CLIENT_ID || null
