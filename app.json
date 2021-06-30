@@ -1,0 +1,5 @@
+{
+  "name": "HTTP to MQTT bridge",
+  "description": "HTTP to MQTT Bridge",
+  "repository": "https://github.com/stevelaclasse/http_to_mqtt",
+}
