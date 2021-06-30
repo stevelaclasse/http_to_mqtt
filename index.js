@@ -124,24 +124,24 @@ app.post('/post/', logRequest, authorizeUser, checkSingleFileUpload, checkMessag
     
     if (payload.includes('green')){
         if(payload.includes('on')){
-            payload = 'green_on'
+            payload = 'green_true'
         } else if(payload.includes('of') || payload.includes('off')){
-            payload = 'green_off'
+            payload = 'green_false'
         }
     }
     else if (payload.includes('red')){
         if(payload.includes('on')){
-            payload = 'red_on'
+            payload = 'red_true'
         } else if(payload.includes('of') || payload.includes('off')){
-            payload = 'red_off'
+            payload = 'red_false'
         }
     }
 
     else if (payload.includes('yellow')){
         if(payload.includes('on')){
-            payload = 'yellow_on'
+            payload = 'yellow_true'
         } else if(payload.includes('of') || payload.includes('off')){
-            payload = 'yellow_off'
+            payload = 'yellow_false'
         }
     }
     
