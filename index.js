@@ -37,6 +37,8 @@ function getMqttClient() {
 
 var mqttClient = getMqttClient();
 
+var payload;
+
 app.set('port', settings.http_port);
 app.use(bodyParser.json());
 
@@ -117,8 +119,35 @@ app.get('/keep_alive/', logRequest, function (req, res) {
 });
 
 app.post('/post/', logRequest, authorizeUser, checkSingleFileUpload, checkMessagePathQueryParameter, checkTopicQueryParameter, ensureTopicSpecified, function (req, res) {
-    mqttClient.publish(req.body['topic'], req.body['message']);
-    console.log("forwarding request with Topic:",req.body['topic'],";and paylod:",req.body['message'])
+    
+    payload = req.body['message']
+    
+    if (payload.includes('green')){
+        if(payload.includes('on')){
+            payload = 'green_on'
+        } else if(payload.includes('of') || payload.includes('off')){
+            payload = 'green_off'
+        }
+    }
+    else if (payload.includes('red')){
+        if(payload.includes('on')){
+            payload = 'red_on'
+        } else if(payload.includes('of') || payload.includes('off')){
+            payload = 'red_off'
+        }
+    }
+
+    else if (payload.includes('yellow')){
+        if(payload.includes('on')){
+            payload = 'yellow_on'
+        } else if(payload.includes('of') || payload.includes('off')){
+            payload = 'yellow_off'
+        }
+    }
+    
+    
+    mqttClient.publish(req.body['topic'], payload);
+    console.log("forwarding request with Topic:",req.body['topic'],";and paylod:",payload)
     res.sendStatus(200);
 });
 
