@@ -1,0 +1,11 @@
+---
+application:
+  name: "iot2021group1http-to-mqtt"
+  project: "http_to_mqtt"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-iot2021group1http-to-mqtt"
+  routes:
+  - application_name: "iot2021group1http-to-mqtt"
+    paths:
+    - "/*"
