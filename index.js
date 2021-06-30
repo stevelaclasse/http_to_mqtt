@@ -11,7 +11,7 @@ var settings = {
     },
     debug: process.env.DEBUG_MODE || true,
     auth_key: process.env.AUTH_KEY || 'iot_group1_2021@hrw.de',
-    http_port: process.env.PORT || 9600
+    http_port: process.env.PORT || 5000
 }
 
 var mqtt = require('mqtt');
